@@ -575,7 +575,7 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
     /**
      * Merges info from OIDC to TYPO3 using a mapping configuration.
      *
-     * @param string $table Can only be 'fe_users' currently
+     * @param string $table Either 'fe_users' or 'be_users'
      * @param array $oidc Data retrieved from identity provider
      * @param array $typo3User Existing user found in database
      * @param array $baseData Data to replace in existing user
@@ -591,7 +591,9 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
         $contentObj = $feSim->getCObj($request);
         $contentObj->start($oidc);
         $typoScriptSetup = $contentObj->getRequest()->getAttribute('frontend.typoscript')->getSetupArray();
-        $mapping = $this->getFeMapping($typoScriptSetup);
+        $mapping = $table === 'be_users'
+            ? $this->getBeMapping($typoScriptSetup)
+            : $this->getFeMapping($typoScriptSetup);
 
         // Process every field (except "usergroup" and "parentGroup") which is not a TypoScript definition
         $typoScriptKeys = [];
@@ -707,6 +709,24 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
         $mapping = [];
         if (!empty($typoScriptSetup['plugin.']['tx_oidc.']['mapping.']['fe_users.'])) {
             $mapping = $typoScriptSetup['plugin.']['tx_oidc.']['mapping.']['fe_users.'];
+        }
+
+        return $mapping ?: $defaultMapping;
+    }
+
+    /**
+     * Returns the mapping configuration for OIDC fields for be_users
+     */
+    protected function getBeMapping(array $typoScriptSetup): array
+    {
+        $defaultMapping = [
+            'username' => '<sub>',
+            'realName' => '<name>',
+        ];
+
+        $mapping = [];
+        if (!empty($typoScriptSetup['plugin.']['tx_oidc.']['mapping.']['be_users.'])) {
+            $mapping = $typoScriptSetup['plugin.']['tx_oidc.']['mapping.']['be_users.'];
         }
 
         return $mapping ?: $defaultMapping;
