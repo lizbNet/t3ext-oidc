@@ -312,7 +312,9 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
 
         $event = new ModifyResourceOwnerEvent($resourceOwnerObject->toArray(), $this, $accessToken);
         $eventDispatcher->dispatch($event);
-        $info = $event->getResourceOwner();
+        // mapping markers (e.g. <userPrincipalName>) are matched case-insensitively via strtolower(),
+        // but resource owner responses (e.g. Microsoft Graph) may use mixed-case keys
+        $info = array_change_key_case($event->getResourceOwner(), CASE_LOWER);
 
         $mode = $this->authInfo['loginType'];
         $userTable = $this->db_user['table'];
@@ -695,7 +697,7 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
     protected function getFeMapping(array $typoScriptSetup): array
     {
         $defaultMapping = [
-            'username'   => '<sub>',
+            'username'   => '<mail>//<userprincipalname>//<sub>',
             'name'       => '<name>',
             'first_name' => '<Vorname>',
             'last_name'  => '<FamilienName>',
