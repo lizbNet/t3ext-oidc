@@ -246,7 +246,7 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
         $this->logger->debug('Retrieving resource owner');
         try {
             $resourceOwnerObject = $this->oauthService->getResourceOwner($accessToken);
-            $this->logger->debug('Resource owner retrieved', ['resourceOwner' => $resourceOwnerObject]);
+            $this->logger->debug('Resource owner retrieved', ['resourceOwner' => $resourceOwnerObject->toArray()]);
         } catch (IdentityProviderException $e) {
             $this->logger->error('Could not retrieve resource owner', ['exception' => $e]);
             return false;
