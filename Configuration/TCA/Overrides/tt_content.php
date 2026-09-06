@@ -11,7 +11,5 @@ ExtensionManagementUtility::addPlugin(
         label: 'LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:tt_content.oidc_login',
         value: 'oidc_login',
         icon: 'ext-oidc-icon'
-    ),
-    'CType',
-    'oidc'
+    )
 );
