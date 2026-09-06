@@ -720,7 +720,6 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
     protected function getBeMapping(array $typoScriptSetup): array
     {
         $defaultMapping = [
-            'username' => '<sub>',
             'realName' => '<name>',
         ];
 
