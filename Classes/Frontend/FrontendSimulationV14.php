@@ -50,6 +50,7 @@ class FrontendSimulationV14 implements FrontendSimulationInterface
                     $originalRequest = $originalRequest->withQueryParams($mergedQueryParams);
                     $pageArguments = new PageArguments($site->getRootPageId(), '0', []);
                     $originalRequest = $originalRequest->withAttribute('routing', $pageArguments);
+                    $originalRequest = $originalRequest->withAttribute('site', $site);
                     $pageInformation = $pageInformationFactory->create($originalRequest);
                     $originalRequest = $originalRequest->withAttribute('frontend.page.information', $pageInformation);
                     $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
