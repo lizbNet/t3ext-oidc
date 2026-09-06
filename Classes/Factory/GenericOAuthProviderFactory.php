@@ -39,7 +39,7 @@ final readonly class GenericOAuthProviderFactory implements OAuthProviderFactory
                 'urlAuthorize' => $settings->endpointAuthorize,
                 'urlAccessToken' => $settings->endpointToken,
                 'urlResourceOwnerDetails' => $settings->endpointUserInfo,
-                'responseResourceOwnerId' => 'sub',
+                'responseResourceOwnerId' => 'id',
                 'accessTokenResourceOwnerId' => 'sub',
                 'scopes' => GeneralUtility::trimExplode(',', $settings->oidcClientScopes, true),
                 'scopeSeparator' => $settings->oidcClientScopeSeparator,
