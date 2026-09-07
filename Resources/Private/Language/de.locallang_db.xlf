@@ -38,6 +38,10 @@
 				<source>Frontend User Must Exist: If ticked, only Frontend Users who are present locally in TYPO3 will be able to authenticate with OpenID Connect. You may need to watch logs to find users who could not authenticate.</source>
 				<target>Frontend-Benutzer muss vorhanden sein: Wenn dieses Häkchen gesetzt ist, können sich nur Frontend User, die lokal in TYPO3 vorhanden sind, mit OpenID Connect authentifizieren. Möglicherweise müssen Sie die Logs beobachten, um Benutzer zu finden, die sich nicht authentifizieren konnten.</target>
 			</trans-unit>
+			<trans-unit id="settings.backendUserMustExistLocally">
+				<source>Backend User Must Exist: If ticked, only Backend Users who are present locally in TYPO3 will be able to authenticate with OpenID Connect. Disabling this allows any authenticated OpenID Connect user to be auto-provisioned as a Backend User, which is a significant privilege-escalation risk; leave enabled unless you understand the consequences.</source>
+				<target>Backend-Benutzer muss vorhanden sein: Wenn dieses Häkchen gesetzt ist, können sich nur Backend User, die lokal in TYPO3 vorhanden sind, mit OpenID Connect authentifizieren. Wird dies deaktiviert, kann jeder authentifizierte OpenID-Connect-Benutzer automatisch als Backend-Benutzer angelegt werden, was ein erhebliches Risiko der Rechteausweitung darstellt; nur deaktivieren, wenn Ihnen die Konsequenzen bewusst sind.</target>
+			</trans-unit>
 			<trans-unit id="settings.oauthProviderFactory">
 				<source>OAuth Provider Factory: Fully qualified class name (empty for generic provider).</source>
 				<target>OAuth Provider Factory: Voll qualifizierter Klassenname (leer für generic provider)</target>

@@ -23,6 +23,7 @@ final class OidcConfiguration
     public bool $reEnableFrontendUsers = false;
     public bool $undeleteFrontendUsers = false;
     public bool $frontendUserMustExistLocally = false;
+    public bool $backendUserMustExistLocally = true;
     public bool $disableCSRFProtection = false;
     public bool $enableCodeVerifier = false;
     public string $authenticationUrlRoute = 'oidc/authentication';
@@ -57,6 +58,7 @@ final class OidcConfiguration
         $this->reEnableFrontendUsers = (bool)$extConfig['reEnableFrontendUsers'];
         $this->undeleteFrontendUsers = (bool)$extConfig['undeleteFrontendUsers'];
         $this->frontendUserMustExistLocally = (bool)$extConfig['frontendUserMustExistLocally'];
+        $this->backendUserMustExistLocally = (bool)($extConfig['backendUserMustExistLocally'] ?? $this->backendUserMustExistLocally);
         $this->disableCSRFProtection = (bool)$extConfig['oidcDisableCSRFProtection'];
         $this->enableCodeVerifier = (bool)$extConfig['enableCodeVerifier'];
         $this->authenticationUrlRoute = $extConfig['authenticationUrlRoute'] ?? $this->authenticationUrlRoute;

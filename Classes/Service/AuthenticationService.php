@@ -350,7 +350,10 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
         }
         $userLookupResult->free();
 
-        if (!$row && $this->config->frontendUserMustExistLocally) {
+        $userMustExistLocally = $mode === 'FE'
+            ? $this->config->frontendUserMustExistLocally
+            : $this->config->backendUserMustExistLocally;
+        if (!$row && $userMustExistLocally) {
             // User does not exist locally, it should not be created on-the-fly
             $this->logger->info('User does not exist locally, denying access', ['info' => $info]);
             return false;

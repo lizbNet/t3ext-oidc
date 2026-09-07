@@ -13,6 +13,9 @@ undeleteFrontendUsers = 0
 # cat=basic/enable/4; type=boolean; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.frontendUserMustExistLocally
 frontendUserMustExistLocally = 0
 
+# cat=basic/enable/4a; type=boolean; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.backendUserMustExistLocally
+backendUserMustExistLocally = 1
+
 # cat=basic/enable/5; type=boolean; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.enableCodeVerifier
 enableCodeVerifier = 0
 
