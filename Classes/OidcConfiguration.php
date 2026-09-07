@@ -19,6 +19,8 @@ final class OidcConfiguration
     public int $authenticationServiceQuality = 80;
     /** @var int[] */
     public array $usersStoragePids = [0];
+    /** @var int[] */
+    public array $beUsersStoragePids = [0];
     public string $usersDefaultGroup = '';
     public bool $reEnableFrontendUsers = false;
     public bool $undeleteFrontendUsers = false;
@@ -75,6 +77,7 @@ final class OidcConfiguration
         $this->endpointRevoke = $extConfig['oidcEndpointRevoke'];
         $this->endpointLogout = $extConfig['oidcEndpointLogout'];
         $this->usersStoragePids = GeneralUtility::intExplode(',', $extConfig['usersStoragePid'], true) ?: [0];
+        $this->beUsersStoragePids = GeneralUtility::intExplode(',', $extConfig['beUsersStoragePid'] ?? '0', true) ?: [0];
         $this->usersDefaultGroup = $extConfig['usersDefaultGroup'];
         $this->oidcRedirectUri = $extConfig['oidcRedirectUri'];
         $this->revokeAccessTokenAfterLogin = (bool)$extConfig['oidcRevokeAccessTokenAfterLogin'];

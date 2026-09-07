@@ -95,6 +95,9 @@
 			<trans-unit id="settings.usersStoragePid">
 				<source>Storage Pid: Comma-separated list of page UIDs where fe_users are located. The first UID is used to store new users.</source>
 			</trans-unit>
+			<trans-unit id="settings.beUsersStoragePid">
+				<source>Backend Users Storage Pid: Comma-separated list of page UIDs where be_users are located. Defaults to 0, since Backend Users conventionally reside at the root pid regardless of where fe_users are stored.</source>
+			</trans-unit>
 			<trans-unit id="tt_content.oidc_login">
 				<source>OIDC Login</source>
 			</trans-unit>

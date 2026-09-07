@@ -25,6 +25,9 @@ enablePasswordCredentials = 0
 # cat=basic//1; type=string; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.usersStoragePid
 usersStoragePid = 0
 
+# cat=basic//1a; type=string; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.beUsersStoragePid
+beUsersStoragePid = 0
+
 # cat=basic//2; type=string; label=LLL:EXT:oidc/Resources/Private/Language/locallang_db.xlf:settings.usersDefaultGroup
 usersDefaultGroup =
 

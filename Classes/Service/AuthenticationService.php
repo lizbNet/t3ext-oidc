@@ -324,10 +324,11 @@ class AuthenticationService extends \TYPO3\CMS\Core\Authentication\Authenticatio
             ->getQueryBuilderForTable($userTable);
         $queryBuilder->getRestrictions()->removeAll();
 
+        $storagePids = $mode === 'FE' ? $this->config->usersStoragePids : $this->config->beUsersStoragePids;
         $userFetchConditions = [
             $queryBuilder->expr()->in(
                 'pid',
-                $queryBuilder->createNamedParameter($this->config->usersStoragePids, ArrayParameterType::INTEGER)
+                $queryBuilder->createNamedParameter($storagePids, ArrayParameterType::INTEGER)
             ),
             $queryBuilder->expr()->eq('tx_oidc', $queryBuilder->createNamedParameter($resourceOwnerObject->getId())),
         ];
