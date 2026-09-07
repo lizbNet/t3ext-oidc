@@ -10,6 +10,10 @@
 				<source>OpenID Connect Identifier</source>
 				<target>OpenID Connect Identifier</target>
 			</trans-unit>
+			<trans-unit id="be_users.tx_oidc">
+				<source>OpenID Connect Identifier</source>
+				<target>OpenID Connect Identifier</target>
+			</trans-unit>
 			<trans-unit id="settings.authenticationServicePriority">
 				<source>Authentication service priority: This defines the order of the OIDC authentication service in relation to other authentication services. Higher number wins.</source>
 				<target>Authentifizierungs-Service Priorität: Definiert die Reihenfolge des OIDC Authentifizierungs-Service in Bezug auf andere Authentifizierungs-Services. Höhere Zahl gewinnt.</target>

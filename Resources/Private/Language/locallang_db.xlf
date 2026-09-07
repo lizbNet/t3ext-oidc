@@ -8,6 +8,9 @@
 			<trans-unit id="fe_users.tx_oidc">
 				<source>OpenID Connect Identifier</source>
 			</trans-unit>
+			<trans-unit id="be_users.tx_oidc">
+				<source>OpenID Connect Identifier</source>
+			</trans-unit>
 			<trans-unit id="settings.authenticationServicePriority">
 				<source>Authentication service priority: This defines the order of the OIDC authentication service in relation to other authentication services. Higher number wins.</source>
 			</trans-unit>
