@@ -58,4 +58,16 @@ if ($settings->enableBackendAuthentication) {
         'iconIdentifier' => 'actions-key',
         'label' => 'OIDC',
     ];
+
+    if ($settings->hideBackendPasswordLogin) {
+        // Unregister core's own username/password login provider from the
+        // backend login screen. This must happen here (in ext_localconf.php,
+        // which loads after core's own backend registration, rather than in
+        // config/system/additional.php, which runs too early during the
+        // initial configuration export - before any ext_localconf.php has
+        // executed, so core would just re-register it afterwards).
+        // This only hides the UI option; a direct POST with credentials
+        // still authenticates normally, and be_users passwords stay valid.
+        unset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416747]);
+    }
 }

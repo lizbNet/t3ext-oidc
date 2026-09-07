@@ -46,6 +46,10 @@
 				<source>Backend User Must Exist: If ticked, only Backend Users who are present locally in TYPO3 will be able to authenticate with OpenID Connect. Disabling this allows any authenticated OpenID Connect user to be auto-provisioned as a Backend User, which is a significant privilege-escalation risk; leave enabled unless you understand the consequences.</source>
 				<target>Backend-Benutzer muss vorhanden sein: Wenn dieses Häkchen gesetzt ist, können sich nur Backend User, die lokal in TYPO3 vorhanden sind, mit OpenID Connect authentifizieren. Wird dies deaktiviert, kann jeder authentifizierte OpenID-Connect-Benutzer automatisch als Backend-Benutzer angelegt werden, was ein erhebliches Risiko der Rechteausweitung darstellt; nur deaktivieren, wenn Ihnen die Konsequenzen bewusst sind.</target>
 			</trans-unit>
+			<trans-unit id="settings.hideBackendPasswordLogin">
+				<source>Hide Backend Password Login: If ticked, the "Login with username and password" option is hidden from the backend login screen, leaving only OIDC selectable. This only hides the UI option - a direct request with credentials still authenticates normally, so existing Backend User passwords remain a valid fallback if OIDC becomes unavailable.</source>
+				<target>Backend-Passwort-Login ausblenden: Wenn dieses Häkchen gesetzt ist, wird die Option "Login mit Benutzername und Passwort" im Backend-Login-Bildschirm ausgeblendet, sodass nur noch OIDC auswählbar ist. Dies blendet nur die Oberflächen-Option aus - eine direkte Anfrage mit Zugangsdaten authentifiziert weiterhin normal, sodass bestehende Backend-Benutzer-Passwörter ein gültiger Fallback bleiben, falls OIDC ausfällt.</target>
+			</trans-unit>
 			<trans-unit id="settings.oauthProviderFactory">
 				<source>OAuth Provider Factory: Fully qualified class name (empty for generic provider).</source>
 				<target>OAuth Provider Factory: Voll qualifizierter Klassenname (leer für generic provider)</target>
